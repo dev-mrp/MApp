@@ -31,5 +31,5 @@
         <activity android:name=".activity.DashBoardActivity" />
         <activity android:name=".activity.LoadOffLineAmountActivity"></activity>
     </application>
-<!-- Added for test-->
+
 </manifest>
