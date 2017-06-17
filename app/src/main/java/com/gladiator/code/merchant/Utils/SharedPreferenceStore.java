@@ -9,6 +9,7 @@ import android.support.v4.content.LocalBroadcastManager;
 
 /**
  * Created by Mukesh on 5/16/2017.
+ * This class user for saving data to local
  */
 
 public class SharedPreferenceStore {
