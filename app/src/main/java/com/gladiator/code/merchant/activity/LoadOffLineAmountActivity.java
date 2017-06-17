@@ -16,7 +16,7 @@ import com.gladiator.code.merchant.Utils.SharedPreferenceStore;
 
 public class LoadOffLineAmountActivity extends AppCompatActivity {
 
-    private ProgressBar progressBar;
+    private ProgressBar mProgressBar;
     private EditText etAmount;
     private Button btnLoadOfflineAmount;
     private Context mContext;
@@ -28,7 +28,7 @@ public class LoadOffLineAmountActivity extends AppCompatActivity {
 
         mContext =getBaseContext();
 
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressbar);
         etAmount = (EditText) findViewById(R.id.et_amount);
         btnLoadOfflineAmount = (Button) findViewById(R.id.btn_load);
 
@@ -39,7 +39,7 @@ public class LoadOffLineAmountActivity extends AppCompatActivity {
                     Toast.makeText(mContext, "Enter proper amount", Toast.LENGTH_LONG).show();
                 }else{
                     btnLoadOfflineAmount.setEnabled(false);
-                    progressBar.setVisibility(View.VISIBLE);
+                    mProgressBar.setVisibility(View.VISIBLE);
                     new LoadOfflineAmount(Integer.parseInt(etAmount.getText().toString())).execute();
                 }
 
@@ -74,7 +74,7 @@ public class LoadOffLineAmountActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
             btnLoadOfflineAmount.setEnabled(true);
-            progressBar.setVisibility(View.INVISIBLE);
+            mProgressBar.setVisibility(View.INVISIBLE);
             int currentAmount = SharedPreferenceStore.getValue(mContext, SharedPreferenceStore.KEY_OFFLINE_AMOUNT, 0);
             SharedPreferenceStore.storeValue(mContext, SharedPreferenceStore.KEY_OFFLINE_AMOUNT, amount + currentAmount);
             finish();
