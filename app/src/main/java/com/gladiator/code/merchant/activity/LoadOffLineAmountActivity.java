@@ -17,7 +17,7 @@ import com.gladiator.code.merchant.Utils.SharedPreferenceStore;
 public class LoadOffLineAmountActivity extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
-    private EditText etAmount;
+    private EditText eAmount;
     private Button btnLoadOfflineAmount;
     private Context mContext;
 
@@ -29,18 +29,18 @@ public class LoadOffLineAmountActivity extends AppCompatActivity {
         mContext =getBaseContext();
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressbar);
-        etAmount = (EditText) findViewById(R.id.et_amount);
+        eAmount = (EditText) findViewById(R.id.et_amount);
         btnLoadOfflineAmount = (Button) findViewById(R.id.btn_load);
 
         btnLoadOfflineAmount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TextUtils.isEmpty(etAmount.getText().toString()) && !TextUtils.isDigitsOnly(etAmount.getText().toString())){
+                if(TextUtils.isEmpty(eAmount.getText().toString()) && !TextUtils.isDigitsOnly(eAmount.getText().toString())){
                     Toast.makeText(mContext, "Enter proper amount", Toast.LENGTH_LONG).show();
                 }else{
                     btnLoadOfflineAmount.setEnabled(false);
                     mProgressBar.setVisibility(View.VISIBLE);
-                    new LoadOfflineAmount(Integer.parseInt(etAmount.getText().toString())).execute();
+                    new LoadOfflineAmount(Integer.parseInt(eAmount.getText().toString())).execute();
                 }
 
             }
