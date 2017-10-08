@@ -29,13 +29,17 @@ public class JavaTest {
         Child mChild = new Child();
         mChild.display();
 */
-        Child2 mChild2 = new Child2();
+
+        Base mBase = new Base();
+        mBase.display();
+
+       /* Child2 mChild2 = new Child2();
         mChild2.display();
-        mChild2.display1();
+        mChild2.display1();*/
 
 
         Child mChild = new Child();
-        mChild.display1();
+        mChild.display();
        // mChild.
     }
 
@@ -58,7 +62,7 @@ public class JavaTest {
   class Child extends Base {
 
     public void display() {
-        super.display();
+       // super.display();
         System.out.println("Child");
     }
 
